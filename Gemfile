@@ -1,13 +1,15 @@
 source 'https://rubygems.org'
 
-gem 'rails', '3.2.8'
+gem 'rails', '3.2.11'
 
 # Bundle edge Rails instead:
 # gem 'rails', :git => 'git://github.com/rails/rails.git'
 
-gem 'sqlite3'
+group :development, :test do
+  gem 'sqlite3', '1.3.5'
+  gem 'rspec-rails', '2.11.0'
+end
 
-gem 'json'
 
 # Gems used only for assets and not required
 # in production environments by default.
@@ -23,6 +25,14 @@ end
 
 gem 'jquery-rails'
 
+group :test do
+  gem 'capybara', '1.1.2'
+end
+
+group :production do
+  gem 'pg', '0.12.2'
+end
+
 # To use ActiveModel has_secure_password
 # gem 'bcrypt-ruby', '~> 3.0.0'
 
@@ -36,8 +46,4 @@ gem 'jquery-rails'
 # gem 'capistrano'
 
 # To use debugger
-# gem 'ruby-debug'
-
-group :development, :test do
-  gem 'rspec-rails',      ">= 2.0.0.beta"
-end
+# gem 'debugger'
